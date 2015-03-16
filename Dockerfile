@@ -1,8 +1,9 @@
 FROM ruby:2.1.5
-ADD . /gem
 RUN gem install bundler --pre
+ENV NO_COLOR=1
+
+ADD . /gem
 WORKDIR /gem
 RUN bundle install
-
 CMD ["bin/rake", "test"]
 

@@ -132,7 +132,7 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='id identifier rubyid_proc'>proc</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_req'>req</span><span class='op'>|</span>
-  <span class='id identifier rubyid_req'>req</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Authorization</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>%(</span><span class='tstring_content'>Token token=&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>BayPhoto</span><span class='op'>::</span><span class='const'>Configuration</span><span class='period'>.</span><span class='id identifier rubyid_access_token'>access_token</span><span class='embexpr_end'>}</span><span class='tstring_content'>&quot;</span><span class='tstring_end'>)</span></span>
+  <span class='id identifier rubyid_req'>req</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Authorization</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>%Q[</span><span class='tstring_content'>Token token=&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>BayPhoto</span><span class='op'>::</span><span class='const'>Configuration</span><span class='period'>.</span><span class='id identifier rubyid_access_token'>access_token</span><span class='embexpr_end'>}</span><span class='tstring_content'>&quot;</span><span class='tstring_end'>]</span></span>
 <span class='kw'>end</span></pre></dd>
       
         <dt id="API_ENDPOINTS-constant" class="">API_ENDPOINTS =
@@ -530,20 +530,22 @@ the specified API version.</p>
 80
 81
 82
-83</pre>
+83
+84</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_response'>handle_response</span><span class='lparen'>(</span><span class='id identifier rubyid_resp'>resp</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_resp'>resp</span>
-  <span class='kw'>when</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPSuccess</span>
+  <span class='kw'>when</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPSuccess</span> <span class='kw'>then</span>
     <span class='const'>MultiJson</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span> <span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='label'>symbolize_keys:</span> <span class='kw'>true</span>
-  <span class='kw'>when</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPRedirection</span>
+  <span class='kw'>when</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPRedirection</span> <span class='kw'>then</span>
     <span class='comment'># None of the endpoints should redirect so fail if this ever happens.
-</span>    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>UnexpectedRedirect</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_resp'>resp</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unexpected redirect! Site tried to redirect to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_resp'>resp</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>location</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+</span>    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>BayPhoto</span><span class='op'>::</span><span class='const'>Exceptions</span><span class='op'>::</span><span class='const'>UnexpectedRedirect</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_resp'>resp</span><span class='rparen'>)</span><span class='comma'>,</span>
+         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unexpected redirect! Site tried to redirect to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_resp'>resp</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>location</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>else</span>
-    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>BadResponse</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_resp'>resp</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bad response from server: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_fail'>fail</span> <span class='const'>BayPhoto</span><span class='op'>::</span><span class='const'>Exceptions</span><span class='op'>::</span><span class='const'>BadResponse</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_resp'>resp</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bad response from server: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -616,7 +618,6 @@ the specified API version.</p>
       <pre class="lines">
 
 
-103
 104
 105
 106
@@ -627,10 +628,11 @@ the specified API version.</p>
 111
 112
 113
-114</pre>
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_http_handle'>http_handle</span><span class='lparen'>(</span><span class='label'>version:</span> <span class='symbol'>:v1</span><span class='rparen'>)</span>
   <span class='ivar'>@__handles</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -915,15 +917,15 @@ string and does not pass JSON validation</p>
       <pre class="lines">
 
 
-91
 92
 93
 94
 95
-96</pre>
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_uri_path_for'>uri_path_for</span><span class='lparen'>(</span><span class='label'>resource:</span><span class='comma'>,</span> <span class='label'>version:</span> <span class='symbol'>:v1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_resource'>resource</span> <span class='op'>=</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -941,7 +943,7 @@ string and does not pass JSON validation</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Apr 17 17:42:43 2015 by
+  Generated on Fri Apr 17 19:11:53 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

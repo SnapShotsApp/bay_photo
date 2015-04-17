@@ -3,7 +3,7 @@ rvm:
   - 2.1.5
   - 2.2.2
 cache: bundler
-bundler_args: --without guard console --deployment --jobs 3
+bundler_args: --without guard console --jobs 3
 notifications:
   slack:
     secure: odSUT+X0LevDsF/6ExFZIJz6N8AbCutJrrEKHx7QG0NId3CoxHa7nwq76D9BLmu2svJQoLbjo+lg9Qy8M+X61q9w59DR7nh5k4kdpg3FLSrSQXCd1EhGRKlj4I5LnZmOk86x3DkrFDDwVqPhWm4WzWaWi9NrGMmY5QEd8q1y5n0=

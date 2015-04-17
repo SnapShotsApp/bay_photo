@@ -29,6 +29,6 @@ task regen_gh_pages: [:clobber, :doc] do
   mv FileList["doc/*"], "."
   sh %(git add -A && git ci -m "Regenerated at #{Time.now}" && git push)
   sh "git checkout master"
-  sh "git stash pop"
+  sh "git stash pop || true"
 end
 

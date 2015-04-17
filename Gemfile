@@ -12,6 +12,11 @@ group :test do
   gem "simplecov"
 end
 
+group :docs do
+  gem "yard"
+  gem "redcarpet"
+end
+
 group :console do
   gem "pry", require: false
   gem "pry-doc", require: false
@@ -27,5 +32,6 @@ group :guard do
   gem "guard-rspec", require: false
   gem "guard-bundler", require: false
   gem "guard-bundler-audit", require: false
+  gem "guard-rake", require: false
 end
 

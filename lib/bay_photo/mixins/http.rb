@@ -8,7 +8,7 @@ module BayPhoto::Mixins::HTTP
   # Convenience proc for setting the BayPhoto auth header
   # @yieldparam req [Net::HTTPRequest] The request object
   SET_REQUEST_AUTH_TOKEN = proc do |req|
-    req["Authorization"] = %(Token token="#{BayPhoto::Configuration.access_token}")
+    req["Authorization"] = %Q[Token token="#{BayPhoto::Configuration.access_token}"]
   end
 
   # Hash of API endpoint versions
@@ -72,13 +72,14 @@ module BayPhoto::Mixins::HTTP
   # @return [Hash] The parsed JSON response
   def handle_response(resp)
     case resp
-    when Net::HTTPSuccess
+    when Net::HTTPSuccess then
       MultiJson.load resp.body, symbolize_keys: true
-    when Net::HTTPRedirection
+    when Net::HTTPRedirection then
       # None of the endpoints should redirect so fail if this ever happens.
-      fail UnexpectedRedirect.new(resp), "Unexpected redirect! Site tried to redirect to #{resp['location']}"
+      fail BayPhoto::Exceptions::UnexpectedRedirect.new(resp),
+           "Unexpected redirect! Site tried to redirect to #{resp['location']}"
     else
-      fail BadResponse.new(resp), "Bad response from server: #{resp.value}"
+      fail BayPhoto::Exceptions::BadResponse.new(resp), "Bad response from server: #{resp.value}"
     end
   end
 

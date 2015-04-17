@@ -7,7 +7,7 @@ module BayPhoto::Exceptions
 
     # @param response [Net::HTTPResponse] Object to set in the {#response} getter
     def initialize(response)
-      @response = response.freeze
+      @response = response
     end
   end
 

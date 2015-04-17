@@ -4,7 +4,7 @@
 clearing :on
 
 if ENV["TMUX"]
-  # Only active this if we"re in a tmux session.
+  # Only active this if we're in a tmux session.
   # Guard defaults to terminal title if no notification is set manually.
   notification :tmux,
                display_message: true,
@@ -30,8 +30,6 @@ guard :rspec, cmd: "bin/rspec" do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
 
-  # Feel free to open issues for suggestions and improvements
-
   # RSpec files
   rspec = dsl.rspec
   watch(rspec.spec_helper) { rspec.spec_dir }
@@ -40,6 +38,6 @@ guard :rspec, cmd: "bin/rspec" do
 
   # Ruby files
   ruby = dsl.ruby
-  dsl.watch_spec_files_for(ruby.lib_files)
+  watch(ruby.lib_files) { |m| rspec.spec.call(m[1].sub(%r{\Alib/}, "")) }
 end
 

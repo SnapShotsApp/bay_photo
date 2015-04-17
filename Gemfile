@@ -8,6 +8,10 @@ group :development, :test do
   gem "rspec",    "~> 3.2.0"
 end
 
+group :test do
+  gem "simplecov"
+end
+
 group :console do
   gem "pry", require: false
   gem "pry-doc", require: false
@@ -18,14 +22,10 @@ group :console do
   gem "coderay", require: false
 end
 
-group :development do
+group :guard do
   gem "guard", require: false
   gem "guard-rspec", require: false
   gem "guard-bundler", require: false
   gem "guard-bundler-audit", require: false
-end
-
-group :test do
-  gem "simplecov"
 end
 

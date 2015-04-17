@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-
-require "bundler/setup"
-require "bay_photo"
-
-require "pry"
-Pry.start
-

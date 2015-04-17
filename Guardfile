@@ -41,3 +41,7 @@ guard :rspec, cmd: "bin/rspec" do
   watch(ruby.lib_files) { |m| rspec.spec.call(m[1].sub(%r{\Alib/}, "")) }
 end
 
+guard :rake, task: :doc do
+  watch(%r{^lib/.*?\.rb$})
+end
+

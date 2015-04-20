@@ -64,7 +64,7 @@ RSpec.describe BayPhoto::Mixins::HTTP do
     end
 
     it "requests the specified resource" do
-      endpoints_mock = double("API_ENDPOINTS", "[]": URI("http://foo.com/bar/"))
+      endpoints_mock = double("API_ENDPOINTS", :[] => URI("http://foo.com/bar/"))
       stub_const("#{described_class}::API_ENDPOINTS", endpoints_mock)
 
       request = Net::HTTP::Get.new "/foo"
@@ -84,7 +84,7 @@ RSpec.describe BayPhoto::Mixins::HTTP do
       allow(subject).to receive(:http_handle).with(version: :v1).and_return(@http)
       allow(subject).to receive(:handle_response).with(:response).and_return(:handled)
 
-      endpoints_mock = double("API_ENDPOINTS", "[]": URI("http://foo.com/bar/"))
+      endpoints_mock = double("API_ENDPOINTS", :[] => URI("http://foo.com/bar/"))
       stub_const("#{described_class}::API_ENDPOINTS", endpoints_mock)
     end
 
@@ -147,7 +147,7 @@ RSpec.describe BayPhoto::Mixins::HTTP do
 
   context "#uri_path_for" do
     before(:each) do
-      @endpoints_mock = double("API_ENDPOINTS", "[]": URI("http://foo.com/bar/"))
+      @endpoints_mock = double("API_ENDPOINTS", :[] => URI("http://foo.com/bar/"))
       stub_const("#{described_class}::API_ENDPOINTS", @endpoints_mock)
     end
 
@@ -189,7 +189,7 @@ RSpec.describe BayPhoto::Mixins::HTTP do
   context "#http_handle" do
     before(:each) do
       @endpoint = instance_double(URI::HTTP, host: "foo.com", port: 80)
-      @endpoints_mock = double("API_ENDPOINTS", "[]": @endpoint)
+      @endpoints_mock = double("API_ENDPOINTS", :[] => @endpoint)
       stub_const("#{described_class}::API_ENDPOINTS", @endpoints_mock)
 
       subject.instance_variable_set(:@__handles, nil)

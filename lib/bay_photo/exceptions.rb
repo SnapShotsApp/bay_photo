@@ -19,5 +19,8 @@ module BayPhoto::Exceptions
 
   # Failure state for bad JSON string passed to {BayPhoto::Mixins::HTTP#post}
   class BadJSON < StandardError; end
+
+  # Failure state for wrong extension on request
+  class BadRequestURIExtension < StandardError; end
 end
 

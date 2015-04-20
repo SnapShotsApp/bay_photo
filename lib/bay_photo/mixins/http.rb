@@ -12,8 +12,9 @@ module BayPhoto::Mixins::HTTP
   end
 
   # Hash of API endpoint versions
+  # @note All URIs here *must* have trailing slashes.
   API_ENDPOINTS = {
-    v1: URI("https://pricing.bayphoto.com/api/v1").freeze
+    v1: URI("https://pricing.bayphoto.com/api/v1/").freeze
   }.freeze
 
   # Perform an `HTTP GET` request against the resource in
@@ -24,12 +25,12 @@ module BayPhoto::Mixins::HTTP
   # @return [Hash] The parsed JSON response
   # @raise (see #handle_response)
   def get(resource:, version: :v1)
-    handle = http_handle(version: version)
+    http = http_handle(version: version)
 
     req = Net::HTTP::Get.new(uri_path_for(resource: resource, version: version))
     SET_REQUEST_AUTH_TOKEN.call(req)
 
-    handle_response(handle.request(req))
+    handle_response(http.request(req))
   end
 
   # Perform an `HTTP POST` request against the resource in the
@@ -47,7 +48,7 @@ module BayPhoto::Mixins::HTTP
       begin
         MultiJson.load data
       rescue MultiJson::ParseError => e
-        raise BadJSON, "Invalid JSON string: #{e.message}"
+        raise BayPhoto::Exceptions::BadJSON, "Invalid JSON string: #{e.message}"
       end
     else
       data = MultiJson.dump data
@@ -88,12 +89,19 @@ module BayPhoto::Mixins::HTTP
   # @api private
   # @param resource [String|Symbol] Either a string or symbol representation of the resource
   # @param version [Symbol] The API version to use
+  # @raise [BayPhoto::Exceptions::BadRequestURIExtension] if the resource has any extension other than `.json`
   # @return [String] The uri path
   def uri_path_for(resource:, version: :v1)
-    resource = resource.to_s
-    resource << ".json" if resource !~ /\.json\Z/
+    res = resource.to_s
 
-    URI.join(API_ENDPOINTS[version], resource).request_uri
+    ext = File.extname res
+    if !ext.nil? and !ext.empty? and ext != ".json"
+      fail BayPhoto::Exceptions::BadRequestURIExtension, "Tried to fetch a #{ext} URI, but only JSON is supported"
+    end
+
+    res << ".json" if res !~ /\.json\Z/
+
+    URI.join(API_ENDPOINTS[version], res).request_uri
   end
 
   # Fetch the HTTP connection handle for a given API version.
@@ -102,7 +110,7 @@ module BayPhoto::Mixins::HTTP
   # @param version [Symbol] The API version to use
   # @return [Net::HTTP] The HTTP connection handle
   def http_handle(version: :v1)
-    @__handles ||= []
+    @__handles ||= {}
 
     if @__handles[version].nil?
       uri = API_ENDPOINTS[version]

@@ -5,6 +5,9 @@ end
 
 require "bay_photo"
 
+# Add spec/support to load path for easier requiring in spec files
+$LOAD_PATH.unshift File.expand_path("../support", __FILE__)
+
 RSpec.configure do |config|
   # rspec-expectations
   config.expect_with :rspec do |expectations|

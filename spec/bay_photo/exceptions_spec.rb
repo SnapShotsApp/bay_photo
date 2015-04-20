@@ -9,6 +9,10 @@ RSpec.describe BayPhoto::Exceptions::BadJSON do
   it { should be_a(StandardError) }
 end
 
+RSpec.describe BayPhoto::Exceptions::BadRequestURIExtension do
+  it { should be_a(StandardError) }
+end
+
 RSpec.shared_examples "response error" do
   let(:subject) { described_class.new(OpenStruct.new) }
   it { should be_a(StandardError) }

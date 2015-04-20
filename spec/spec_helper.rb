@@ -20,7 +20,7 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.disable_monkey_patching!
   config.warnings = true
-  config.profile_examples = 10
+  config.profile_examples = 5
   config.order = :random
   Kernel.srand config.seed
 end

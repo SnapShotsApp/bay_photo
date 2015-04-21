@@ -29,6 +29,7 @@ end
 
 group :guard do
   gem "guard", require: false
+  gem "launchy", require: false
   gem "guard-rspec", require: false
   gem "guard-bundler", require: false
   gem "guard-bundler-audit", require: false

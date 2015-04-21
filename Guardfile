@@ -26,7 +26,7 @@ guard :bundler do
   files.each { |file| watch(helper.real_path(file)) }
 end
 
-guard :rspec, cmd: "bin/rspec" do
+guard :rspec, cmd: "bin/rspec", launchy: "./coverage/index.html" do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
 

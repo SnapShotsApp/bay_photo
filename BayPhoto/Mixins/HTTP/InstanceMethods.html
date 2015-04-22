@@ -4,26 +4,26 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Module: BayPhoto::Mixins::HTTP
+  Module: BayPhoto::Mixins::HTTP::InstanceMethods
   
     &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
-  relpath = '../../';
-  framesUrl = "../../frames.html#!BayPhoto/Mixins/HTTP.html";
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!BayPhoto/Mixins/HTTP/InstanceMethods.html";
 </script>
 
 
-  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
 
-  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
 
 
   </head>
@@ -31,10 +31,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../../_index.html">Index (H)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../BayPhoto.html" title="BayPhoto (module)">BayPhoto</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Mixins.html" title="BayPhoto::Mixins (module)">Mixins</a></span></span>
+    <a href="../../../_index.html">Index (I)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../BayPhoto.html" title="BayPhoto (module)">BayPhoto</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Mixins.html" title="BayPhoto::Mixins (module)">Mixins</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../HTTP.html" title="BayPhoto::Mixins::HTTP (module)">HTTP</a></span></span>
      &raquo; 
-    <span class="title">HTTP</span>
+    <span class="title">InstanceMethods</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -43,17 +43,17 @@
       <div id="search">
   
     <a class="full_list_link" id="class_list_link"
-        href="../../class_list.html">
+        href="../../../class_list.html">
       Class List
     </a>
   
     <a class="full_list_link" id="method_list_link"
-        href="../../method_list.html">
+        href="../../../method_list.html">
       Method List
     </a>
   
     <a class="full_list_link" id="file_list_link"
-        href="../../file_list.html">
+        href="../../../file_list.html">
       File List
     </a>
   
@@ -63,7 +63,7 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><h1>Module: BayPhoto::Mixins::HTTP
+    <div id="content"><h1>Module: BayPhoto::Mixins::HTTP::InstanceMethods
   
   
   
@@ -77,23 +77,16 @@
     
   
   
-    <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="../BaseModel.html" title="BayPhoto::BaseModel (class)">BaseModel</a></span></dd>
-    
   
-  
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/bay_photo/mixins/http.rb</dd>
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/bay_photo/mixins/http.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>HTTP mixin for ease of use and code reuse in model objects.</p>
-
-<p>Exposes <span class='object_link'><a href="#get-instance_method" title="BayPhoto::Mixins::HTTP#get (method)">#get</a></span> and <span class='object_link'><a href="#post-instance_method" title="BayPhoto::Mixins::HTTP#post (method)">#post</a></span> methods for internal use in communicating
-with the remote API.</p>
+    <p>Instance methods mixed in by included</p>
 
 
   </div>
@@ -102,73 +95,6 @@ with the remote API.</p>
   
 
 </div>
-  <h2>Constant Summary</h2>
-  
-    <dl class="constants">
-      
-        <dt id="SET_REQUEST_AUTH_TOKEN-constant" class="">SET_REQUEST_AUTH_TOKEN =
-          <div class="docstring">
-  <div class="discussion">
-    <p>Convenience proc for setting the BayPhoto auth header</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Yield Parameters:</p>
-<ul class="yieldparam">
-  
-    <li>
-      
-        <span class='name'>req</span>
-      
-      
-        <span class='type'>(<tt>Net::HTTPRequest</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The request object</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='id identifier rubyid_proc'>proc</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_req'>req</span><span class='op'>|</span>
-  <span class='id identifier rubyid_req'>req</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Authorization</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>%(</span><span class='tstring_content'>Token token=&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>BayPhoto</span><span class='op'>::</span><span class='const'>Configuration</span><span class='period'>.</span><span class='id identifier rubyid_access_token'>access_token</span><span class='embexpr_end'>}</span><span class='tstring_content'>&quot;</span><span class='tstring_end'>)</span></span>
-<span class='kw'>end</span></pre></dd>
-      
-        <dt id="API_ENDPOINTS-constant" class="">API_ENDPOINTS =
-          <div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'><p>All URIs here <em>must</em> have trailing slashes.</p>
-</div>
-  </div>
-
-<p>Hash of API endpoint versions</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='label'>v1:</span> <span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://pricing.bayphoto.com/api/v1/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
-<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-      
-    </dl>
-  
-
 
 
 
@@ -223,7 +149,7 @@ with the remote API.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Dispatch function for response object from <span class='object_link'><a href="#get-instance_method" title="BayPhoto::Mixins::HTTP#get (method)">#get</a></span> and <span class='object_link'><a href="#post-instance_method" title="BayPhoto::Mixins::HTTP#post (method)">#post</a></span>.</p>
+    <span class="summary_desc"><div class='inline'><p>Dispatch function for response object from <span class='object_link'><a href="#get-instance_method" title="BayPhoto::Mixins::HTTP::InstanceMethods#get (method)">#get</a></span> and <span class='object_link'><a href="#post-instance_method" title="BayPhoto::Mixins::HTTP::InstanceMethods#post (method)">#post</a></span>.</p>
 </div></span>
   
 </li>
@@ -383,7 +309,7 @@ the specified API version.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Exceptions/UnexpectedRedirect.html" title="BayPhoto::Exceptions::UnexpectedRedirect (class)">BayPhoto::Exceptions::UnexpectedRedirect</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../../Exceptions/UnexpectedRedirect.html" title="BayPhoto::Exceptions::UnexpectedRedirect (class)">BayPhoto::Exceptions::UnexpectedRedirect</a></span></tt>)</span>
       
       
       
@@ -396,7 +322,7 @@ the specified API version.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Exceptions/BadResponse.html" title="BayPhoto::Exceptions::BadResponse (class)">BayPhoto::Exceptions::BadResponse</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../../Exceptions/BadResponse.html" title="BayPhoto::Exceptions::BadResponse (class)">BayPhoto::Exceptions::BadResponse</a></span></tt>)</span>
       
       
       
@@ -414,17 +340,17 @@ the specified API version.</p>
       <pre class="lines">
 
 
-30
-31
 32
 33
 34
 35
 36
-37</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>resource:</span><span class='comma'>,</span> <span class='label'>version:</span> <span class='symbol'>:v1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_http'>http</span> <span class='op'>=</span> <span class='id identifier rubyid_http_handle'>http_handle</span><span class='lparen'>(</span><span class='label'>version:</span> <span class='id identifier rubyid_version'>version</span><span class='rparen'>)</span>
@@ -454,7 +380,7 @@ the specified API version.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Dispatch function for response object from <span class='object_link'><a href="#get-instance_method" title="BayPhoto::Mixins::HTTP#get (method)">#get</a></span> and <span class='object_link'><a href="#post-instance_method" title="BayPhoto::Mixins::HTTP#post (method)">#post</a></span>.</p>
+<p>Dispatch function for response object from <span class='object_link'><a href="#get-instance_method" title="BayPhoto::Mixins::HTTP::InstanceMethods#get (method)">#get</a></span> and <span class='object_link'><a href="#post-instance_method" title="BayPhoto::Mixins::HTTP::InstanceMethods#post (method)">#post</a></span>.</p>
 
 
   </div>
@@ -503,7 +429,7 @@ the specified API version.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Exceptions/UnexpectedRedirect.html" title="BayPhoto::Exceptions::UnexpectedRedirect (class)">BayPhoto::Exceptions::UnexpectedRedirect</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../../Exceptions/UnexpectedRedirect.html" title="BayPhoto::Exceptions::UnexpectedRedirect (class)">BayPhoto::Exceptions::UnexpectedRedirect</a></span></tt>)</span>
       
       
       
@@ -516,7 +442,7 @@ the specified API version.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Exceptions/BadResponse.html" title="BayPhoto::Exceptions::BadResponse (class)">BayPhoto::Exceptions::BadResponse</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../../Exceptions/BadResponse.html" title="BayPhoto::Exceptions::BadResponse (class)">BayPhoto::Exceptions::BadResponse</a></span></tt>)</span>
       
       
       
@@ -534,8 +460,6 @@ the specified API version.</p>
       <pre class="lines">
 
 
-77
-78
 79
 80
 81
@@ -545,10 +469,12 @@ the specified API version.</p>
 85
 86
 87
-88</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_response'>handle_response</span><span class='lparen'>(</span><span class='id identifier rubyid_resp'>resp</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_resp'>resp</span>
@@ -632,8 +558,6 @@ the specified API version.</p>
       <pre class="lines">
 
 
-115
-116
 117
 118
 119
@@ -643,10 +567,12 @@ the specified API version.</p>
 123
 124
 125
-126</pre>
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_http_handle'>http_handle</span><span class='lparen'>(</span><span class='label'>version:</span> <span class='symbol'>:v1</span><span class='rparen'>)</span>
   <span class='ivar'>@__handles</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -757,7 +683,7 @@ raw JSON string to pass as data to the endpoint</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Exceptions/BadJSON.html" title="BayPhoto::Exceptions::BadJSON (class)">BayPhoto::Exceptions::BadJSON</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../../Exceptions/BadJSON.html" title="BayPhoto::Exceptions::BadJSON (class)">BayPhoto::Exceptions::BadJSON</a></span></tt>)</span>
       
       
       
@@ -771,7 +697,7 @@ string and does not pass JSON validation</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Exceptions/UnexpectedRedirect.html" title="BayPhoto::Exceptions::UnexpectedRedirect (class)">BayPhoto::Exceptions::UnexpectedRedirect</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../../Exceptions/UnexpectedRedirect.html" title="BayPhoto::Exceptions::UnexpectedRedirect (class)">BayPhoto::Exceptions::UnexpectedRedirect</a></span></tt>)</span>
       
       
       
@@ -784,7 +710,7 @@ string and does not pass JSON validation</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Exceptions/BadResponse.html" title="BayPhoto::Exceptions::BadResponse (class)">BayPhoto::Exceptions::BadResponse</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../../Exceptions/BadResponse.html" title="BayPhoto::Exceptions::BadResponse (class)">BayPhoto::Exceptions::BadResponse</a></span></tt>)</span>
       
       
       
@@ -802,8 +728,6 @@ string and does not pass JSON validation</p>
       <pre class="lines">
 
 
-49
-50
 51
 52
 53
@@ -821,10 +745,12 @@ string and does not pass JSON validation</p>
 65
 66
 67
-68</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='label'>resource:</span><span class='comma'>,</span> <span class='label'>data:</span><span class='comma'>,</span> <span class='label'>version:</span> <span class='symbol'>:v1</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span> <span class='const'>String</span>
@@ -930,7 +856,7 @@ string and does not pass JSON validation</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Exceptions/BadRequestURIExtension.html" title="BayPhoto::Exceptions::BadRequestURIExtension (class)">BayPhoto::Exceptions::BadRequestURIExtension</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../../Exceptions/BadRequestURIExtension.html" title="BayPhoto::Exceptions::BadRequestURIExtension (class)">BayPhoto::Exceptions::BadRequestURIExtension</a></span></tt>)</span>
       
       
       
@@ -948,8 +874,6 @@ string and does not pass JSON validation</p>
       <pre class="lines">
 
 
-97
-98
 99
 100
 101
@@ -959,10 +883,12 @@ string and does not pass JSON validation</p>
 105
 106
 107
-108</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/http.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_uri_path_for'>uri_path_for</span><span class='lparen'>(</span><span class='label'>resource:</span><span class='comma'>,</span> <span class='label'>version:</span> <span class='symbol'>:v1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -986,7 +912,7 @@ string and does not pass JSON validation</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Apr 22 18:18:54 2015 by
+  Generated on Tue Apr 21 15:50:14 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

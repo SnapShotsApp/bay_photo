@@ -68,6 +68,7 @@ module BayPhoto::Mixins::Attributes
   # @api private
   # @return [Hash] the attribute hash
   def defined_attributes
+    self.class.instance_exec { @__attributes ||= {} }
     self.class.instance_variable_get(:@__attributes)
   end
 

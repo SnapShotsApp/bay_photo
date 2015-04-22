@@ -13,11 +13,11 @@ class BayPhoto::BaseModel
     update_attributes! attrs
   end
 
-  # Fetch the array of objects from the API.
+  # Fetch the array of subclassed model objects from the API.
   #
   # @return [Array<BaseModel>] the array of instantiated model objects
   def self.all
-    new.get(@__resource).map { |row| new(row) }
+    Array(new.get(resource: @__resource)).map { |row| new(row) }
   end
 
   # Sets the default resource path to pass to {Mixins::HTTP#get} and {Mixins::HTTP#post}.
@@ -26,6 +26,14 @@ class BayPhoto::BaseModel
   # @return [void]
   def self.resource(res)
     @__resource = res
+  end
+
+  # Gets the class-level resource at the instance level
+  #
+  # @return [Symbol|String] the resource path
+  def resource
+    self.class.instance_exec { @__resource ||= nil }
+    self.class.instance_variable_get(:@__resource)
   end
 end
 

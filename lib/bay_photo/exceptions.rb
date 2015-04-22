@@ -22,5 +22,8 @@ module BayPhoto::Exceptions
 
   # Failure state for wrong extension on request
   class BadRequestURIExtension < StandardError; end
+
+  # Failure state for inability to coerce a model attribute
+  class CoercionFailure < StandardError; end
 end
 

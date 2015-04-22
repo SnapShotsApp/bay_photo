@@ -5,6 +5,7 @@ require "bay_photo/configuration"
 module BayPhoto
   autoload :Mixins,     "bay_photo/mixins"
   autoload :Exceptions, "bay_photo/exceptions"
+  autoload :Product,    "bay_photo/product"
 
   # Set configuration attributes globally.
   #

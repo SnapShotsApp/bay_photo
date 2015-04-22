@@ -5,22 +5,16 @@ require "rake/clean"
 CLEAN.include FileList["coverage/", "doc/", "tmp/*"]
 CLOBBER.include FileList[".yardoc/"]
 
-begin
-  require "yard"
-  YARD::Rake::YardocTask.new do |t|
-    t.files         = ["lib/**/*.rb"]
-    t.options       = ["--protected", "--markup", "markdown"]
-    t.stats_options = ["--list-undoc"]
-  end
-  task doc: :yard
-rescue LoadError
+desc "Regenerate yard documentation"
+task :doc do
+  sh "bundle exec yard --no-stats --no-cache"
 end
 
 RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 desc "Regenerate GitHub Pages branch"
-task regen_gh_pages: [:clobber, :doc] do
+task regen_gh_pages: :doc do
   current_branch = `git branch | grep "*" | awk '{ print $2 }'`.strip
   if current_branch.nil? or current_branch.empty?
     fail "Unable to determine current branch. Are you in a detached HEAD?"

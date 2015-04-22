@@ -2,13 +2,16 @@ require "uri"
 require "net/http"
 require "multi_json"
 
-# HTTP mixin for ease of use
+# HTTP mixin for ease of use and code reuse in model objects.
+#
+# Exposes {#get} and {#post} methods for internal use in communicating
+# with the remote API.
 # @api HTTP
 module BayPhoto::Mixins::HTTP
   # Convenience proc for setting the BayPhoto auth header
   # @yieldparam req [Net::HTTPRequest] The request object
   SET_REQUEST_AUTH_TOKEN = proc do |req|
-    req["Authorization"] = %Q[Token token="#{BayPhoto::Configuration.access_token}"]
+    req["Authorization"] = %(Token token="#{BayPhoto::Configuration.access_token}")
   end
 
   # Hash of API endpoint versions

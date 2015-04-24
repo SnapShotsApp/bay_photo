@@ -43,5 +43,7 @@ end
 
 guard :rake, task: :doc do
   watch(%r{^lib/.*?\.rb$})
+  watch("README.md")
+  watch("LICENSE.txt")
 end
 

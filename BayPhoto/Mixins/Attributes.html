@@ -78,7 +78,7 @@
   
   
     <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="../BaseModel.html" title="BayPhoto::BaseModel (class)">BaseModel</a></span></dd>
+    <dd class="r1"><span class='object_link'><a href="../BaseModel.html" title="BayPhoto::BaseModel (class)">BaseModel</a></span>, <span class='object_link'><a href="../Customer.html" title="BayPhoto::Customer (class)">Customer</a></span>, <span class='object_link'><a href="../OrderProducts/OrderProduct.html" title="BayPhoto::OrderProducts::OrderProduct (class)">OrderProducts::OrderProduct</a></span>, <span class='object_link'><a href="../OrderProducts/OrderProduct/OrderService.html" title="BayPhoto::OrderProducts::OrderProduct::OrderService (class)">OrderProducts::OrderProduct::OrderService</a></span></dd>
     
   
   
@@ -141,6 +141,52 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Get the attributes definition hash set on the class by the attribute macro.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_hash-instance_method" title="#to_hash (instance method)">- (Hash) <strong>to_hash</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the Hash representation of the attributes defined on the class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_json-instance_method" title="#to_json (instance method)">- (String) <strong>to_json</strong>(options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the stringified JSON representation of the attributes defined on the class.</p>
 </div></span>
   
 </li>
@@ -224,17 +270,159 @@
       <pre class="lines">
 
 
-70
-71
 72
-73</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/attributes.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/attributes.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_defined_attributes'>defined_attributes</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_instance_exec'>instance_exec</span> <span class='lbrace'>{</span> <span class='ivar'>@__attributes</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='rbrace'>}</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_get'>instance_variable_get</span><span class='lparen'>(</span><span class='symbol'>:@__attributes</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_hash-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>to_hash</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the Hash representation of the attributes defined
+on the class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the attributes as a Hash</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83
+84
+85</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/attributes.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_hash'>to_hash</span>
+  <span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_defined_attributes'>defined_attributes</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='op'>|</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid___send__'>__send__</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_hash'>hash</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_json-instance_method">
+  
+    - (<tt>String</tt>) <strong>to_json</strong>(options = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the stringified JSON representation of the attributes defined
+on the class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>options hash possibly passed from MultiJson doing
+a recursive dump. Passed through to the MultiJson call.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the dumped JSON string</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/attributes.rb', line 93</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_json'>to_json</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='const'>MultiJson</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span> <span class='id identifier rubyid_to_hash'>to_hash</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -303,17 +491,17 @@ not been declared as attributes on the model via the DSL.</p>
       <pre class="lines">
 
 
-57
-58
 59
 60
 61
 62
 63
-64</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/attributes.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/mixins/attributes.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_attributes!'>update_attributes!</span><span class='lparen'>(</span><span class='id identifier rubyid_attrs'>attrs</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_defined_attributes'>defined_attributes</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_defined_attr'>defined_attr</span><span class='op'>|</span>
@@ -333,7 +521,7 @@ not been declared as attributes on the model via the DSL.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Apr 22 18:18:54 2015 by
+  Generated on Fri Apr 24 16:53:52 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

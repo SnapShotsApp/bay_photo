@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: BayPhoto::Product
+  Class: BayPhoto::Order
   
     &mdash; Documentation by YARD 0.8.7.6
   
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!BayPhoto/Product.html";
+  framesUrl = "../frames.html#!BayPhoto/Order.html";
 </script>
 
 
@@ -31,10 +31,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (P)</a> &raquo;
+    <a href="../_index.html">Index (O)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../BayPhoto.html" title="BayPhoto (module)">BayPhoto</a></span></span>
      &raquo; 
-    <span class="title">Product</span>
+    <span class="title">Order</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -63,7 +63,7 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><h1>Class: BayPhoto::Product
+    <div id="content"><h1>Class: BayPhoto::Order
   
   
   
@@ -80,7 +80,7 @@
           
             <li class="next"><span class='object_link'><a href="BaseModel.html" title="BayPhoto::BaseModel (class)">BaseModel</a></span></li>
           
-            <li class="next">BayPhoto::Product</li>
+            <li class="next">BayPhoto::Order</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -96,14 +96,14 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/bay_photo/product.rb</dd>
+    <dd class="r2 last">lib/bay_photo/order.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Products API wrapper class</p>
+    <p>Order API wrapper class</p>
 
 
   </div>
@@ -130,7 +130,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#id-instance_method" title="#id (instance method)">- (Integer) <strong>id</strong> </a>
+      <a href="#customer-instance_method" title="#customer (instance method)">- (BayPhoto::Customer) <strong>customer</strong> </a>
     
 
     
@@ -147,7 +147,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The type-coerced <code>id</code> attribute.</p>
+    <span class="summary_desc"><div class='inline'><p>The <code>customer</code> attribute.</p>
 </div></span>
   
 </li>
@@ -156,7 +156,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#name-instance_method" title="#name (instance method)">- (String) <strong>name</strong> </a>
+      <a href="#order_date-instance_method" title="#order_date (instance method)">- (DateTime) <strong>order_date</strong> </a>
     
 
     
@@ -173,7 +173,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The type-coerced <code>name</code> attribute.</p>
+    <span class="summary_desc"><div class='inline'><p>The <code>order_date</code> attribute.</p>
 </div></span>
   
 </li>
@@ -182,7 +182,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#price-instance_method" title="#price (instance method)">- (Float) <strong>price</strong> </a>
+      <a href="#order_name-instance_method" title="#order_name (instance method)">- (String) <strong>order_name</strong> </a>
     
 
     
@@ -199,7 +199,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The type-coerced <code>price</code> attribute.</p>
+    <span class="summary_desc"><div class='inline'><p>The <code>order_name</code> attribute.</p>
 </div></span>
   
 </li>
@@ -208,7 +208,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#print_size_x-instance_method" title="#print_size_x (instance method)">- (Float) <strong>print_size_x</strong> </a>
+      <a href="#products-instance_method" title="#products (instance method)">- (BayPhoto::OrderProducts) <strong>products</strong> </a>
     
 
     
@@ -225,7 +225,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The type-coerced <code>print_size_x</code> attribute.</p>
+    <span class="summary_desc"><div class='inline'><p>The <code>products</code> attribute.</p>
 </div></span>
   
 </li>
@@ -234,7 +234,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#print_size_y-instance_method" title="#print_size_y (instance method)">- (Float) <strong>print_size_y</strong> </a>
+      <a href="#shipping_billing_code-instance_method" title="#shipping_billing_code (instance method)">- (String) <strong>shipping_billing_code</strong> </a>
     
 
     
@@ -251,33 +251,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The type-coerced <code>print_size_y</code> attribute.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#square_inch-instance_method" title="#square_inch (instance method)">- (Float) <strong>square_inch</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The type-coerced <code>square_inch</code> attribute.</p>
+    <span class="summary_desc"><div class='inline'><p>The <code>shipping_billing_code</code> attribute.</p>
 </div></span>
   
 </li>
@@ -343,11 +317,11 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="id=-instance_method"></span>
+      <span id="customer=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="id-instance_method">
+  <h3 class="signature first" id="customer-instance_method">
   
-    - (<tt>Integer</tt>) <strong>id</strong> 
+    - (<tt><span class='object_link'><a href="Customer.html" title="BayPhoto::Customer (class)">BayPhoto::Customer</a></span></tt>) <strong>customer</strong> 
   
 
   
@@ -355,7 +329,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the type-coerced <code>id</code> attribute</p>
+    <p>Returns the <code>customer</code> attribute</p>
 
 
   </div>
@@ -368,12 +342,12 @@
     <li>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Customer.html" title="BayPhoto::Customer (class)">BayPhoto::Customer</a></span></tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>the type-coerced <code>id</code> attribute</p>
+        <div class='inline'><p>the <code>customer</code> attribute</p>
 </div>
       
     </li>
@@ -386,23 +360,23 @@
       <pre class="lines">
 
 
-9</pre>
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/product.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/order.rb', line 13</span>
 
-<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:id</span><span class='comma'>,</span> <span class='const'>Integer</span></pre>
+<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:customer</span><span class='comma'>,</span> <span class='const'>BayPhoto</span><span class='op'>::</span><span class='const'>Customer</span></pre>
     </td>
   </tr>
 </table>
 </div>
     
       
-      <span id="name=-instance_method"></span>
+      <span id="order_date=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="name-instance_method">
+  <h3 class="signature " id="order_date-instance_method">
   
-    - (<tt>String</tt>) <strong>name</strong> 
+    - (<tt>DateTime</tt>) <strong>order_date</strong> 
   
 
   
@@ -410,7 +384,62 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the type-coerced <code>name</code> attribute</p>
+    <p>Returns the <code>order_date</code> attribute</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>DateTime</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the <code>order_date</code> attribute</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/order.rb', line 11</span>
+
+<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:order_date</span><span class='comma'>,</span> <span class='const'>DateTime</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="order_name=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="order_name-instance_method">
+  
+    - (<tt>String</tt>) <strong>order_name</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the <code>order_name</code> attribute</p>
 
 
   </div>
@@ -428,7 +457,7 @@
       
       
         &mdash;
-        <div class='inline'><p>the type-coerced <code>name</code> attribute</p>
+        <div class='inline'><p>the <code>order_name</code> attribute</p>
 </div>
       
     </li>
@@ -444,20 +473,20 @@
 10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/product.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/order.rb', line 10</span>
 
-<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='const'>String</span></pre>
+<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:order_name</span><span class='comma'>,</span> <span class='const'>String</span></pre>
     </td>
   </tr>
 </table>
 </div>
     
       
-      <span id="price=-instance_method"></span>
+      <span id="products=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="price-instance_method">
+  <h3 class="signature " id="products-instance_method">
   
-    - (<tt>Float</tt>) <strong>price</strong> 
+    - (<tt><span class='object_link'><a href="OrderProducts.html" title="BayPhoto::OrderProducts (class)">BayPhoto::OrderProducts</a></span></tt>) <strong>products</strong> 
   
 
   
@@ -465,7 +494,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the type-coerced <code>price</code> attribute</p>
+    <p>Returns the <code>products</code> attribute</p>
 
 
   </div>
@@ -478,177 +507,12 @@
     <li>
       
       
-        <span class='type'>(<tt>Float</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="OrderProducts.html" title="BayPhoto::OrderProducts (class)">BayPhoto::OrderProducts</a></span></tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>the type-coerced <code>price</code> attribute</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-11</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/product.rb', line 11</span>
-
-<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:price</span><span class='comma'>,</span> <span class='const'>Float</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="print_size_x=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="print_size_x-instance_method">
-  
-    - (<tt>Float</tt>) <strong>print_size_x</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns the type-coerced <code>print_size_x</code> attribute</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>the type-coerced <code>print_size_x</code> attribute</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-12</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/product.rb', line 12</span>
-
-<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:print_size_x</span><span class='comma'>,</span> <span class='const'>Float</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="print_size_y=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="print_size_y-instance_method">
-  
-    - (<tt>Float</tt>) <strong>print_size_y</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns the type-coerced <code>print_size_y</code> attribute</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>the type-coerced <code>print_size_y</code> attribute</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-13</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/product.rb', line 13</span>
-
-<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:print_size_y</span><span class='comma'>,</span> <span class='const'>Float</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="square_inch=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="square_inch-instance_method">
-  
-    - (<tt>Float</tt>) <strong>square_inch</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns the type-coerced <code>square_inch</code> attribute</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>the type-coerced <code>square_inch</code> attribute</p>
+        <div class='inline'><p>the <code>products</code> attribute</p>
 </div>
       
     </li>
@@ -664,9 +528,64 @@
 14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bay_photo/product.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/order.rb', line 14</span>
 
-<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:square_inch</span><span class='comma'>,</span> <span class='const'>Float</span></pre>
+<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:products</span><span class='comma'>,</span> <span class='const'>BayPhoto</span><span class='op'>::</span><span class='const'>OrderProducts</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="shipping_billing_code=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="shipping_billing_code-instance_method">
+  
+    - (<tt>String</tt>) <strong>shipping_billing_code</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the <code>shipping_billing_code</code> attribute</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the <code>shipping_billing_code</code> attribute</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/order.rb', line 12</span>
+
+<span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:shipping_billing_code</span><span class='comma'>,</span> <span class='const'>String</span></pre>
     </td>
   </tr>
 </table>

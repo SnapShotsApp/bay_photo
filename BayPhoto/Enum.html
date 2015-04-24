@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: BayPhoto::Enum
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!BayPhoto/Enum.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../BayPhoto.html" title="BayPhoto (module)">BayPhoto</a></span></span>
+     &raquo; 
+    <span class="title">Enum</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: BayPhoto::Enum
+  
+  
+  <span class="private note title">Private</span>
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/bay_photo/enum.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This module is part of a private API.</strong>
+  You should avoid using this module if possible, as it may be removed or be changed in the future.
+</p>
+<p>Simple implementation of the Enum pattern to be used as
+an attribute coercion in Models.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Enum/EnumInstance.html" title="BayPhoto::Enum::EnumInstance (class)">EnumInstance</a></span>
+    
+  
+</p>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define-class_method" title="define (class method)">+ (Class&lt;EnumInstance&gt;) <strong>define</strong>(*args, start_at: 0) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Create a new anonymous <span class='object_link'><a href="Enum/EnumInstance.html" title="BayPhoto::Enum::EnumInstance (class)">EnumInstance</a></span> class definition, similar to how Struct.new works.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="define-class_method">
+  
+    + (<tt>Class&lt;<span class='object_link'><a href="Enum/EnumInstance.html" title="BayPhoto::Enum::EnumInstance (class)">EnumInstance</a></span>&gt;</tt>) <strong>define</strong>(*args, start_at: 0) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Create a new anonymous <span class='object_link'><a href="Enum/EnumInstance.html" title="BayPhoto::Enum::EnumInstance (class)">EnumInstance</a></span> class definition,
+similar to how Struct.new works.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Zero-indexed with 4 values</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='id identifier rubyid_enum'>enum</span> <span class='op'>=</span> <span class='const'>Enum</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:bar</span><span class='comma'>,</span> <span class='symbol'>:baz</span><span class='comma'>,</span> <span class='symbol'>:qux</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_enum'>enum</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:bar</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>    <span class='comment'># =&gt; 1
+</span><span class='id identifier rubyid_enum'>enum</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:pants</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>  <span class='comment'># =&gt; RuntimeError
+</span><span class='id identifier rubyid_enum'>enum</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>       <span class='comment'># =&gt; :baz</span></code></pre>
+    
+      
+        <p class="example_title"><div class='inline'><p>2-indexed with 2 values</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='id identifier rubyid_enum'>enum</span> <span class='op'>=</span> <span class='const'>Enum</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:bar</span><span class='comma'>,</span> <span class='label'>start_at:</span> <span class='int'>2</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_enum'>enum</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>    <span class='comment'># =&gt; 2</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>args</span>
+      
+      
+        <span class='type'>(<tt>*Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the list of symbols to translate</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>start_at</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the index the enum should start at</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Class&lt;<span class='object_link'><a href="Enum/EnumInstance.html" title="BayPhoto::Enum::EnumInstance (class)">EnumInstance</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the <span class='object_link'><a href="Enum/EnumInstance.html" title="BayPhoto::Enum::EnumInstance (class)">EnumInstance</a></span> class</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>RuntimeError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>if the args splat is blank</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>RuntimeError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>if the args splat contains anything other than Symbols</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/bay_photo/enum.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='label'>start_at:</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Must have at least one symbol in args list</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>or</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>All args must be Symbols</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_all?'>all?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_arg'>arg</span><span class='op'>|</span> <span class='id identifier rubyid_arg'>arg</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span> <span class='const'>Symbol</span> <span class='rbrace'>}</span>
+
+  <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>EnumInstance</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='ivar'>@args</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span>
+    <span class='ivar'>@start_at</span> <span class='op'>=</span> <span class='id identifier rubyid_start_at'>start_at</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Fri Apr 24 16:53:51 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.2).
+</div>
+
+  </body>
+</html>

@@ -1,3 +1,5 @@
+require "multi_json"
+
 # Mixin for the attribute DSL method
 # @api Model
 module BayPhoto::Mixins::Attributes
@@ -70,6 +72,26 @@ module BayPhoto::Mixins::Attributes
   def defined_attributes
     self.class.instance_exec { @__attributes ||= {} }
     self.class.instance_variable_get(:@__attributes)
+  end
+
+  # Returns the Hash representation of the attributes defined
+  # on the class.
+  #
+  # @return [Hash] the attributes as a Hash
+  def to_hash
+    hash = {}
+    defined_attributes.keys.each { |key| hash[key] = __send__(key) }
+    hash
+  end
+
+  # Returns the stringified JSON representation of the attributes defined
+  # on the class.
+  #
+  # @param options [Hash] options hash possibly passed from MultiJson doing
+  #   a recursive dump. Passed through to the MultiJson call.
+  # @return [String] the dumped JSON string
+  def to_json(options = {})
+    MultiJson.dump to_hash, options
   end
 
 private

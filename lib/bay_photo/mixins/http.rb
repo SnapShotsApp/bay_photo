@@ -17,7 +17,7 @@ module BayPhoto::Mixins::HTTP
   # Hash of API endpoint versions
   # @note All URIs here *must* have trailing slashes.
   API_ENDPOINTS = {
-    v1: URI("https://pricing.bayphoto.com/api/v1/").freeze
+    v1: URI("https://order-api.bayphoto.com/api/v1/").freeze
   }.freeze
 
   # Perform an `HTTP GET` request against the resource in

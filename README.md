@@ -3,6 +3,11 @@ BayPhoto [![Build Status][1]](https://travis-ci.org/SnapShotsApp/bay_photo)
 
 Integration with BayPhoto's new ordering and pricing API.
 
+API Access
+----------
+
+Contact baybizdev@bayphoto.com and they can provide you with an access token for the API.
+
 Installation
 ------------
 
@@ -25,7 +30,7 @@ Usage
 
 ### Configuration
 
-To use this gem (and the BayPhoto API generally), you must use the access token provided to you by Bay. You
+To use this gem (and the BayPhoto API generally), you must use the access token provided to you by Bay Photo. You
 can set this token somewhere like an initializer (if using Rails) or anywhere before you call the API methods
 in the gem.
 
@@ -37,7 +42,8 @@ BayPhoto.configure do |config|
 end
 ```
 
-### API Access
+### Example
+
 You can then start using the classes provided in the gem for API interaction. The classes are named after the
 resources from the API documentation you should have access to via your BayPhoto account.
 
@@ -87,7 +93,6 @@ BayPhoto::Order.create({
 })
 ```
 
-
 Development
 -----------
 
@@ -108,4 +113,3 @@ Contributing
 5. Create a new Pull Request
 
 [1]: https://travis-ci.org/SnapShotsApp/bay_photo.svg?branch=master
-
